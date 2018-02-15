@@ -33,3 +33,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    _instanceof:
+        AppBundle\Music\MusicInterface:
+            public: true
+            tags: ['app.music']
