@@ -11,7 +11,7 @@ class MusicPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $definition = $container->findDefinition('AppBundle\Music\MusicCollection');
+        $definition = $container->findDefinition('music.collection');
 
         $taggedServices = $container->findTaggedServiceIds('app.music');
 
