@@ -9,13 +9,20 @@ class DefaultManager
 {
     protected $em;
 
-    public function __construct(EntityManagerInterface $manager)
+    protected $environment;
+
+    public function __construct(EntityManagerInterface $manager, string $environment)
     {
         $this->em = $manager;
+        $this->environment = $environment;
     }
 
     public function reverseString(string $source): string
     {
-        return strrev($source);
+        if ($this->environment === 'dev') {
+            return strrev($source);
+        } else {
+            return str_shuffle($source);
+        }
     }
 }
